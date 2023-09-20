@@ -1,0 +1,13 @@
+{
+    "home": {
+        "title": "Creato da giocatori, per i giocatori"
+    },
+    "login": {
+        "title": "Accedi adesso"
+    },
+    "common": {
+        "login": "Accedi",
+        "register": "Registrati",
+        "search": "Cerca Giochi"
+    }
+}

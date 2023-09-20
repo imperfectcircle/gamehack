@@ -1,0 +1,13 @@
+{
+    "home": {
+        "title": "Made from gamers, for gamers"
+    },
+    "login": {
+        "title": "Login now"
+    },
+    "common": {
+        "login": "Login",
+        "register": "Register",
+        "search": "Search Games"
+    }
+}

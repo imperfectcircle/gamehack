@@ -1,0 +1,23 @@
+<!doctype html>
+<html
+    class="bg-gray-100 scrollbar-thin scrollbar-track-orange-200 scrollbar-thumb-orange-600"
+    lang="en"
+>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vite + React</title>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script>
+            if (localStorage.getItem('theme') === 'dark') {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        </script>
+        <script type="module" src="/src/main.jsx"></script>
+    </body>
+</html>

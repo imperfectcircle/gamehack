@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Source+Code+Pro&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    font-family: 'Poppins', sans-serif;
+}
+
+.font-title {
+    font-family: 'Source Code Pro', monospace;
+}
+
+#notFound {
+    background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.8),
+            rgba(0, 0, 0, 0.4)
+        ),
+        url('/src/Assets/images/not-found.svg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.hamburger {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    transition: all 0.25s;
+    position: relative;
+}
+
+.hamburger-top,
+.hamburger-middle,
+.hamburger-bottom {
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    top: 0;
+    left: 0;
+    transform: rotate(0);
+    transition: all 0.5s;
+}
+
+.hamburger-middle {
+    transform: translateY(7px);
+}
+
+.hamburger-bottom {
+    transform: translateY(14px);
+}
+
+@layer utilities {
+    .top-card::before {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        height: 75px;
+        width: 75px;
+        border-top: 10px solid;
+        border-left: 10px solid;
+        border-image: linear-gradient(to right, #bd2530, #ef4a26, #faa730) 1;
+        transition-duration: 0.5s;
+    }
+
+    .top-card:hover::before {
+        width: 100%;
+        height: 100%;
+        transition-duration: 0.5s;
+    }
+
+    .bottom-card::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        right: -10px;
+        height: 75px;
+        width: 75px;
+        border-bottom: 10px solid;
+        border-right: 10px solid;
+        border-image: linear-gradient(to right, #bd2530, #ef4a26, #faa730) 1;
+        transition-duration: 0.5s;
+    }
+
+    .bottom-card:hover::after {
+        width: 100%;
+        height: 100%;
+        transition-duration: 0.5s;
+    }
+}
