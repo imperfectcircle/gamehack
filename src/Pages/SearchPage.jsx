@@ -50,9 +50,12 @@ export default function SearchPage() {
     };
 
     useEffect(() => {
+        const ctrlK = (event) =>
+            (event.ctrlKey || event.metaKey) && event.key === 'k';
+
         const handleKeyPress = (event) => {
             // Verifico se sono stati premuti ctrl e k
-            if ((event.ctrlKey || event.metaKey) && event.key === 'k') {
+            if (ctrlK(event)) {
                 // Attivo il focus sull'input di ricerca
                 inputRef.current.focus();
             }
@@ -60,7 +63,7 @@ export default function SearchPage() {
 
         // Evito il comportamento di default
         const ignore = (event) => {
-            if ((event.ctrlKey || event.metaKey) && event.key === 'k') {
+            if (ctrlK(event)) {
                 event.preventDefault();
             }
         };
