@@ -52,17 +52,26 @@ export default function SearchPage() {
     useEffect(() => {
         const handleKeyPress = (event) => {
             // Verifico se sono stati premuti ctrl e k
-            if ((event.ctrlKey || event.metaKey) && event.key === '<') {
+            if ((event.ctrlKey || event.metaKey) && event.key === 'k') {
                 // Attivo il focus sull'input di ricerca
                 inputRef.current.focus();
             }
         };
-        // Aggiungo un listener per il keydown
-        document.addEventListener('keydown', handleKeyPress);
+
+        // Evito il comportamento di default
+        const ignore = (event) => {
+            if ((event.ctrlKey || event.metaKey) && event.key === 'k') {
+                event.preventDefault();
+            }
+        };
+        // Aggiungo listener per il keyup e il keydown
+        document.addEventListener('keyup', handleKeyPress);
+        document.addEventListener('keydown', ignore);
 
         return () => {
-            // Rimuovo il listener quando il componente viene smontato
-            document.removeEventListener('keydown', handleKeyPress);
+            // Rimuovo i listener quando il componente viene smontato
+            document.removeEventListener('keyup', handleKeyPress);
+            document.removeEventListener('keydown', ignore);
         };
     }, []);
 
@@ -78,7 +87,7 @@ export default function SearchPage() {
                     <input
                         className="w-full rounded-lg shadow-lg focus:bg-emerald-100 dark:text-black dark:focus:bg-emerald-400"
                         type="text"
-                        placeholder="CTRL+<"
+                        placeholder="CTRL+k"
                         value={searched}
                         onChange={(event) => setSearched(event.target.value)}
                         ref={inputRef}
